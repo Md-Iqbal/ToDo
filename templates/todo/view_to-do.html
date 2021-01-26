@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+<div class="card text-center my-5">
+    <div class="card-header">
+        <h2 class="card-title">{{ todos.Title }}</h2>
+    </div>
+    <div class="card-body">
+
+        <div class="container text-left">
+            
+            <form method="POST">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="Id_Title">
+                        <h4>Title:</h4>
+                    </label>
+                    <Input Type="Text" class="form-control" Name="Title" Maxlength="100" Required Id="Id_Title"
+                        value="{{ todos.Title }}">
+                </div>
+                <div class="mb-3">
+                    <Label For="Id_Description">
+                        <h4>Description:</h4>
+                    </Label>
+                    <Textarea class="form-control" Name="Description" Cols="40" Rows="10"
+                        Id="Id_Description">{{ todos.Description }}</Textarea>
+                </div>
+                <div class="mb-3">
+                    <Input Type="Checkbox" Name="Important" Id="Id_Important" {%if todos.Important%}checked{%endif%}>
+                    <Label For="Id_Important" class="form-check-label">Important</Label>
+                </div>
+                <button type="submit" class="btn btn-info">Update</button>
+            </form>
+        </div>
+    </div>
+    <div class="card-footer text-left text-muted">
+        
+        {% if todos.Completed_time is None %}
+        <form class="d-inline-block" method="POST" action="{% url 'completeTodo' todos.id %}">
+            {% csrf_token %}
+            <button type="submit" id="complete" class="btn btn-success">Complete</button>
+        </form>
+        {% endif %}
+        <form class="d-inline-block" method="POST" action="{% url 'deleteTodo' todos.id %}">
+            {% csrf_token %}
+            <button id="delete" type="submit" class="btn btn-info">Delete</button>
+        </form>
+    </div>
+</div>
+{% endblock content %}

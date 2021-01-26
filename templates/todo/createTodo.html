@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card text-center my-5">
+    <div class="card-header">
+        <h3 class="card-title">Create New TODO</h3>
+    </div>
+    <div class="card-body">
+
+        <div class="container text-left">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="Id_Title"><h4>Title:</h4></label>
+                    <Input Type="Text" class="form-control" Name="Title" Maxlength="100" Required Id="Id_Title" placeholder="Your title here...">
+                </div>
+                <div class="mb-3">
+                    <Label For="Id_Description"><h4>Description:</h4></Label>
+                    <Textarea class="form-control" Name="Description" Cols="40" Rows="10" Id="Id_Description" placeholder="Write your todo Description here..."> </Textarea>
+                </div>
+                <div class="mb-3">
+                    <Input Type="Checkbox" Name="Important" Id="Id_Important">
+                    <Label For="Id_Important" class="form-check-label">Important</Label>
+                </div>
+                <button type="submit" class="btn btn-info">Save</button>
+            </form>
+        </div>
+    </div>
+    <div class="card-footer text-muted">
+        <h2>{{ error }}</h2>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card text-center my-5">
+    <div class="card-header">
+        {% if todos %}
+        <h3 class="d-inline-block">{{ todos.count }} Current Todo{{ todos.count|pluralize }}</h3>
+        {% else %}
+        <h3 class="d-inline-block">Current Todo</h3>
+        {% endif %}
+        <a class="nav-link d-inline-block btn btn-outline-success float-right" href="{% url 'createTodo' %}">Create
+            Todo</a>
+    </div>
+    <div class="card-body">
+        <div style="overflow-y: scroll !important;max-height: 500px;">
+
+            {% if todos %}
+            <div class="list-group">
+                {% for todo in todos %}
+                <a class="list-group-item  list-group-item-action{% if todo.Important %}list-group-item list-group-item-action list-group-item-warning{% endif %} my-2"
+                    href="{% url 'viewTodo' todo.id %}">
+                    <h5>{{ todo.Title }}</h5>
+                </a>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="text-center">
+                <h2>Looks like you are free! Enjoy your day, Thank You.</h2>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    <div class="card-footer text-muted">
+        <p><span id="datetime"></span></p>
+
+        <script>
+            var dt = new Date();
+            document.getElementById("datetime").innerHTML = " Time: " + (("0" + dt.getHours()).slice(-2)) + ":" + (("0" + dt.getMinutes()).slice(-2)) + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date: " + (("0" + dt.getDate()).slice(-2)) + "." + (("0" + (dt.getMonth() + 1)).slice(-2)) + "." + (dt.getFullYear());
+        </script>
+    </div>
+</div>
+{% endblock content %}

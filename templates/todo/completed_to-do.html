@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<div class="card text-center my-5">
+    <div class="card-header">
+        <h3 class="d-inline-block">Completed ToDo(s)</h3>
+        <a class="nav-link d-inline-block btn btn-outline-success float-right" href="{% url 'createTodo' %}">Create
+            Todo</a>
+    </div>
+    <div class="card-body">
+        <ul class="list-group" style="overflow-y: scroll !important;max-height: 500px;">
+            {% for todo in todos %}
+            <a class="list-group-item-action" href="{% url 'viewTodo' todo.id %}">
+                <li class="list-group-item my-2">
+                    {% if todo.Important %}
+                    <h5><b><i>{{ todo.Title }}</i></b></h5>
+                    {% else %}
+                    {{ todo.Title }}
+                    {% endif %}
+                    {{ todo.Completed_time|date:'M j Y H:i' }}
+                </li>
+            </a>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="card-footer text-muted">
+        <p><span id="datetime"></span></p>
+
+        <script>
+            var dt = new Date();
+            document.getElementById("datetime").innerHTML = " Time: " + (("0" + dt.getHours()).slice(-2)) + ":" + (("0" + dt.getMinutes()).slice(-2)) + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date: " + (("0" + dt.getDate()).slice(-2)) + "." + (("0" + (dt.getMonth() + 1)).slice(-2)) + "." + (dt.getFullYear());
+        </script>
+    </div>
+</div>
+
+
+
+{% endblock content %}
+
