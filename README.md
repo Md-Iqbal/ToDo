@@ -1,5 +1,5 @@
 # ToDo
-One simple ToDo project for enhancing your basic Django knowledge.
+One simple ToDo project for enhancing your basic Django knowledge. Just create an account and create, mark complete, update , view and delate all of your todo.
 # Have a look on your ToDo
 ![Screenshot_64](https://user-images.githubusercontent.com/50297349/105914153-1f183200-6058-11eb-8c9e-c0765877fc64.png)
 ![Screenshot_65](https://user-images.githubusercontent.com/50297349/105914154-1fb0c880-6058-11eb-8682-602a0021eddd.png)
