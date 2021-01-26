@@ -3,7 +3,7 @@ One simple ToDo project for enhancing your basic Django knowledge.
 # Have a look on your ToDo
 ![Screenshot_64](https://user-images.githubusercontent.com/50297349/105914153-1f183200-6058-11eb-8c9e-c0765877fc64.png)
 ![Screenshot_65](https://user-images.githubusercontent.com/50297349/105914154-1fb0c880-6058-11eb-8682-602a0021eddd.png)
-![Screenshot_66](https://user-images.githubusercontent.com/50297349/105914155-20495f00-6058-11eb-8e25-814143ab4880.png)
+![Screenshot_68](https://user-images.githubusercontent.com/50297349/105914383-7dddab80-6058-11eb-9d48-cf8534271cc6.png)
 ![Screenshot_67](https://user-images.githubusercontent.com/50297349/105914148-1d4e6e80-6058-11eb-890b-d2fa9b6051cb.png)
 # Setup
 To get this repository, run the following command inside your git enabled terminal
